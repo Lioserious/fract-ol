@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 15:26:53 by lihrig            #+#    #+#              #
-#    Updated: 2025/02/19 15:32:57 by lihrig           ###   ########.fr        #
+#    Updated: 2025/02/19 15:59:45 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,19 @@ vpath %.h $(INC_DIRS)
 #################### QUELL-DATEIEN #############################################
 ################################################################################
 # Alle .c-Dateien im Hauptverzeichnis
-SRC_FILES := working_functions.c jub.c jubjubu.c
+SRC_FILES = error_handling.c \
+			input_processing.c \
+			input_validation.c \
+			support_functions.c \
+			k_sort_support.c \
+			k_sort.c \
+			list_operations_basic.c \
+			main.c \
+			normalise.c \
+			pre_sort.c \
+			push_swap_split.c \
+			stack_sort.c \
+			stack_sort_2.c \
 SRC := $(SRC_FILES)
 
 ################################################################################
