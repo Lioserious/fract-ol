@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:01:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/12 14:09:40 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/12 14:21:16 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,10 @@ typedef struct s_fractal {
     double      julia_im;      // Julia-Set Parameter
     int         color_scheme;  // Farbschema-Auswahl
 } t_fractal;
+
+typedef struct {
+    double real;
+    double imag;
+} Complex;
 
 #endif
