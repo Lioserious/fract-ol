@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 15:26:53 by lihrig            #+#    #+#              #
-#    Updated: 2025/02/19 15:59:45 by lihrig           ###   ########.fr        #
+#    Updated: 2025/02/20 16:20:30 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,19 +33,9 @@ vpath %.h $(INC_DIRS)
 #################### QUELL-DATEIEN #############################################
 ################################################################################
 # Alle .c-Dateien im Hauptverzeichnis
-SRC_FILES = error_handling.c \
-			input_processing.c \
-			input_validation.c \
-			support_functions.c \
-			k_sort_support.c \
-			k_sort.c \
-			list_operations_basic.c \
-			main.c \
-			normalise.c \
-			pre_sort.c \
-			push_swap_split.c \
-			stack_sort.c \
-			stack_sort_2.c \
+SRC_FILES = test.c \
+
+
 SRC := $(SRC_FILES)
 
 ################################################################################
@@ -61,7 +51,7 @@ CFLAGS := -Wall -Wextra -Werror -g -MMD -MP $(addprefix -I, $(INC_DIRS))
 # OS-spezifische Konfiguration
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin) # macOS
-	LDFLAGS := -L$(LIBFT_DIR) -lft -L$(MLX42_DIR)/build -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit
+	LDFLAGS := -L$(LIBFT_DIR) -lft -L$(MLX42_DIR)/build -lmlx42 -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 else ifeq ($(UNAME), Linux) # Linux
 	LDFLAGS := -L$(LIBFT_DIR) -lft -L$(MLX42_DIR)/build -lmlx42 -ldl -lglfw -pthread -lm
 else # Windows/Default
