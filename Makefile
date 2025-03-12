@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 15:26:53 by lihrig            #+#    #+#              #
-#    Updated: 2025/02/20 16:20:30 by lihrig           ###   ########.fr        #
+#    Updated: 2025/03/12 16:54:08 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ vpath %.h $(INC_DIRS)
 #################### QUELL-DATEIEN #############################################
 ################################################################################
 # Alle .c-Dateien im Hauptverzeichnis
-SRC_FILES = test.c \
+SRC_FILES = main.c \
+utils.c \
+Mandelbrot.c \
 
 
 SRC := $(SRC_FILES)
