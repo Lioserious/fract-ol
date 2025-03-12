@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/12 15:22:36 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/12 15:38:20 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 t_fractal	*init_fractal(void)
 {
-	t_fractal *fractal;
+	t_fractal	*fractal;
 
 	fractal = (t_fractal *)malloc(sizeof(t_fractal));
 	if (!fractal)
 		return (NULL);
-
 	// Standardwerte setzen
 	fractal->width = WIDTH;
 	fractal->height = HEIGHT;
@@ -34,6 +33,26 @@ t_fractal	*init_fractal(void)
 	fractal->color_scheme = 0; // Standard-Farbschema
 	fractal->mlx = NULL;
 	fractal->img = NULL;
-
 	return (fractal);
 }
+int	init_mlx(t_fractal *fractal)
+{
+	fractal->mlx = mlx_init(fractal->width, fractal->height, "Fract-ol Test",
+			true);
+	if (!fractal->mlx)
+		return (0);
+	fractal->img = mlx_new_image(fractal->mlx, fractal->width, fractal->height);
+	if (!fractal->img)
+	{
+		mlx_terminate(fractal->mlx);
+		return (0);
+	}
+	if (mlx_image_to_window(fractal->mlx, fractal->img, 0, 0) < 0)
+	{
+		mlx_delete_image(fractal->mlx, fractal->img);
+		mlx_terminate(fractal->mlx);
+		return (0);
+	}
+	return (1);
+}
+
