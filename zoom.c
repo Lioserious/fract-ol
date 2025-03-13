@@ -6,11 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 13:51:25 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 16:23:17 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:16:09 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 // Punkt unter dem Mauszeiger finden
 // Zoom-Faktor (z.B. 0.5 bedeutet halb so große Ansicht = 2x Zoom)
