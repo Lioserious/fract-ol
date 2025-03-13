@@ -6,14 +6,14 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 15:26:53 by lihrig            #+#    #+#              #
-#    Updated: 2025/03/12 16:54:08 by lihrig           ###   ########.fr        #
+#    Updated: 2025/03/13 15:25:06 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ################################################################################
 #################### PROJEKT KONFIGURATION #####################################
 ################################################################################
-NAME = my_program
+NAME = fractol
 CC = cc
 RM = rm -rf
 
@@ -35,7 +35,10 @@ vpath %.h $(INC_DIRS)
 # Alle .c-Dateien im Hauptverzeichnis
 SRC_FILES = main.c \
 utils.c \
-Mandelbrot.c \
+mandelbrot.c \
+zoom.c \
+navigation.c \
+
 
 
 SRC := $(SRC_FILES)
