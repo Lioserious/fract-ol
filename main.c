@@ -6,31 +6,29 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:01:06 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 15:13:03 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
 
-int main(void)
+int	main(void)
 {
-    t_fractal *fractal;
-    
-    fractal = init_fractal();
-    if (!fractal)
-        return (1);
-    
-    if (!init_mlx(fractal))
-    {
-        free(fractal);
-        return (1);
-    }
-	setup_hooks(fractal);
-    render_mandelbrot(fractal);
-    mlx_loop(fractal->mlx);
-    mlx_delete_image(fractal->mlx, fractal->img);
-    mlx_terminate(fractal->mlx);
-    free(fractal);
-    return (0);
-}
+	t_fractal	*fractal;
 
+	fractal = init_fractal();
+	if (!fractal)
+		return (1);
+	if (!init_mlx(fractal))
+	{
+		free(fractal);
+		return (1);
+	}
+	setup_hooks(fractal);
+	render_mandelbrot(fractal);
+	mlx_loop(fractal->mlx);
+	mlx_delete_image(fractal->mlx, fractal->img);
+	mlx_terminate(fractal->mlx);
+	free(fractal);
+	return (0);
+}
