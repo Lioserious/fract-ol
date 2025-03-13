@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/12 16:55:13 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 15:01:06 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(void)
         free(fractal);
         return (1);
     }
+	setup_hooks(fractal);
     render_mandelbrot(fractal);
     mlx_loop(fractal->mlx);
     mlx_delete_image(fractal->mlx, fractal->img);
@@ -32,3 +33,4 @@ int main(void)
     free(fractal);
     return (0);
 }
+
