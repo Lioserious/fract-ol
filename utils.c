@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/12 18:03:06 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:44:00 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ complex map_pixel_to_complex(t_fractal *fractal, int x, int y)
 }
 void render_mandelbrot(t_fractal *fractal)
 {
-    int x, y;
+    int x;
+	int y;
     y = 0;
     while (y < fractal->height)
     {
@@ -88,6 +89,43 @@ void render_mandelbrot(t_fractal *fractal)
                         (int)(t * 255)) << 8 | 0xFF;
             }
             mlx_put_pixel(fractal->img, x, y, color);
+            x++;
+        }
+        y++;
+    }
+}
+
+uint32_t calculate_color(t_fractal *fractal, int iter)
+{
+    uint32_t color;
+    double t;
+    
+    if (iter == fractal->max_iter)
+        color = 0x000000FF; // Schwarz für Punkte im Set
+    else
+    {
+        t = (double)iter / fractal->max_iter;
+        color = (((int)(t * 255) << 16) | ((int)(t * 255) << 8) | (int)(t * 255)) << 8 | 0xFF;
+    }
+    return (color);
+}
+
+void render_mandelbrot(t_fractal *fractal)
+{
+    int x;
+    int y;
+    complex c;
+    int iter;
+    
+    y = 0;
+    while (y < fractal->height)
+    {
+        x = 0;
+        while (x < fractal->width)
+        {
+            c = map_pixel_to_complex(fractal, x, y);
+            iter = calculate_mandelbrot(c, fractal->max_iter);
+            mlx_put_pixel(fractal->img, x, y, calculate_color(fractal, iter));
             x++;
         }
         y++;
