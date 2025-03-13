@@ -6,11 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:43:14 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 16:50:20 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:13:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 // Mausposition holen
 // Links-Klick zum Zoomen

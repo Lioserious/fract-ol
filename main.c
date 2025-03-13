@@ -6,11 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:13:03 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:13:36 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 int	main(void)
 {

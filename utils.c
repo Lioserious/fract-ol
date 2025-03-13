@@ -6,11 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:53:28 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:13:56 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 // Standardwerte setzen
 t_fractal	*init_fractal(void)
@@ -75,26 +75,32 @@ t_complex	map_pixel_to_complex(t_fractal *fractal, int x, int y)
 // 0x000000FF;  Schwarz für Punkte im Set
 int	calculate_color(t_fractal *fractal, int iter)
 {
-	int		color;
 	double	t;
 
 	if (iter == fractal->max_iter)
-		color = 0x000000FF;
-	else
+		return (0x000000FF);
+	t = (double)iter / fractal->max_iter;
+	switch (fractal->color_scheme)
 	{
-		t = (double)iter / fractal->max_iter;
-		color = (((int)(t * 255) << 16) | ((int)(t * 255) << 8) | (int)(t
-					* 255)) << 8 | 0xFF;
+	case 0:
+		return (color_scheme_grayscale(t));
+	case 1:
+		return (color_scheme_red(t));
+	case 2:
+		return (color_scheme_blue(t));
+	case 3:
+		return (color_scheme_psychedelic(t));
+	default:
+		return (color_scheme_grayscale(t));
 	}
-	return (color);
 }
 
 void	render_mandelbrot(t_fractal *fractal)
 {
-	int		x;
-	int		y;
+	int			x;
+	int			y;
 	t_complex	c;
-	int		iter;
+	int			iter;
 
 	y = 0;
 	while (y < fractal->height)

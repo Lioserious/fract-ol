@@ -6,11 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:35:48 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 16:38:02 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:13:26 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 int	color_scheme_grayscale(double t)
 {

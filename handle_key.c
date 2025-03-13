@@ -6,11 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:48:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 16:54:04 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 17:13:31 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "fractol.h"
 
 // Hilfsfunktion für die Navigation
 void	handle_navigation(t_fractal *fractal, mlx_key_data_t keydata)
