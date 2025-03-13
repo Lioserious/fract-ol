@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:48:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 17:13:31 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 18:32:09 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	handle_navigation(t_fractal *fractal, mlx_key_data_t keydata)
 {
 	if (keydata.key == MLX_KEY_UP && (keydata.action == MLX_PRESS
 			|| keydata.action == MLX_REPEAT))
-		move_view(fractal, 0, -1);
+		move_view(fractal, 0, 1);
 	if (keydata.key == MLX_KEY_DOWN && (keydata.action == MLX_PRESS
 			|| keydata.action == MLX_REPEAT))
-		move_view(fractal, 0, 1);
+		move_view(fractal, 0, -1);
 	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_PRESS
 			|| keydata.action == MLX_REPEAT))
 		move_view(fractal, -1, 0);
