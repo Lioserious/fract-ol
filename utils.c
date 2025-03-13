@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 14:44:00 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:45:18 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,35 +66,6 @@ complex map_pixel_to_complex(t_fractal *fractal, int x, int y)
     c.imag = fractal->max_im - (double)y / (fractal->height - 1) * (fractal->max_im - fractal->min_im);
     return c;
 }
-void render_mandelbrot(t_fractal *fractal)
-{
-    int x;
-	int y;
-    y = 0;
-    while (y < fractal->height)
-    {
-        x = 0;
-        while (x < fractal->width)
-        {
-            complex c = map_pixel_to_complex(fractal, x, y);
-            int iter = calculate_mandelbrot(c, fractal->max_iter);
-            uint32_t color;
-            if (iter == fractal->max_iter)
-                color = 0x000000FF; // Schwarz für Punkte im Set
-            else
-            {
-                double t = (double)iter / fractal->max_iter;
-                color = (((int)(t * 255) << 16) | 
-                        ((int)(t * 255) << 8) | 
-                        (int)(t * 255)) << 8 | 0xFF;
-            }
-            mlx_put_pixel(fractal->img, x, y, color);
-            x++;
-        }
-        y++;
-    }
-}
-
 uint32_t calculate_color(t_fractal *fractal, int iter)
 {
     uint32_t color;
