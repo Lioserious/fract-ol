@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:43:14 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/12 17:59:20 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 15:10:08 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	handle_key(mlx_key_data_t keydata, void *param)
 // Mausposition holen
 // Links-Klick zum Zoomen
 // Rechts-Klick zum Rauszoomen
-void	handle_mouse(mouse_key_t button, action_t action, modifier_key_t mods,
+// modifier key t koennen Maustasten konfiguriert werden
+void	handle_mouse(mouse_key_t button, action_t action, modifier_key_t mod __attribute__((unused)),
 		void *param)
 {
 	t_fractal	*fractal;
@@ -55,12 +56,14 @@ void	handle_mouse(mouse_key_t button, action_t action, modifier_key_t mods,
 // Mausposition holen
 // Nach oben scrollen = Reinzoomen
 // Nach unten scrollen = Rauszoomen
-void	handle_scroll(double xdelta, double ydelta, void *param)
+// x delta unused weil es nur fuer trackpads verwendet wird
+void	handle_scroll(double xdelta __attribute__((unused)), double ydelta , void *param)
 {
 	t_fractal	*fractal;
+	int x;
+	int y;
 
 	fractal = param;
-	int x, y;
 	mlx_get_mouse_pos(fractal->mlx, &x, &y);
 	if (ydelta > 0)
 		zoom_in(fractal, x, y);
