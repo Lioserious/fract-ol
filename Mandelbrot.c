@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:39:17 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/12 14:41:09 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 15:24:26 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
 
-int	calculate_mandelbrot(Complex c, int max_iter)
+int	calculate_mandelbrot(complex c, int max_iter)
 {
-	
 	int		i;
 	double	temp;
+	complex	z;
 
-	Complex	z = {0.0, 0.0}; // wie mache ich das norm conform
+	z.real = 0.0;
+	z.imag = 0.0;
 	i = 0;
 	while (i < max_iter && (z.real * z.real + z.imag * z.imag) < 4.0)
 	{
