@@ -6,17 +6,17 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:39:17 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:24:26 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 15:52:47 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
 
-int	calculate_mandelbrot(complex c, int max_iter)
+int	calculate_mandelbrot(t_complex c, int max_iter)
 {
 	int		i;
 	double	temp;
-	complex	z;
+	t_complex	z;
 
 	z.real = 0.0;
 	z.imag = 0.0;
