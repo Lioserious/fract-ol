@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 13:51:25 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:56:45 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 16:23:17 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,24 @@ void	move_view(t_fractal *fractal, int dx, int dy)
 	fractal->max_re += delta_x;
 	fractal->min_im += delta_y;
 	fractal->max_im += delta_y;
+	render_mandelbrot(fractal);
+}
+
+void	handle_resize(int32_t width, int32_t height, void *param)
+{
+	t_fractal	*fractal;
+
+	fractal = param;
+	fractal->width = width;
+	fractal->height = height;
+	mlx_delete_image(fractal->mlx, fractal->img);
+	fractal->img = mlx_new_image(fractal->mlx, width, height);
+	if (!fractal->img)
+		return ;
+	if (mlx_image_to_window(fractal->mlx, fractal->img, 0, 0) < 0)
+	{
+		mlx_delete_image(fractal->mlx, fractal->img);
+		return ;
+	}
 	render_mandelbrot(fractal);
 }
