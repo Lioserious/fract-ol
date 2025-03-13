@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:01:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 17:12:23 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 19:01:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,10 @@ void			handle_scroll(double xdelta, double ydelta, void *param);
 void			handle_close(void *param);
 void			setup_hooks(t_fractal *fractal);
 void			handle_resize(int32_t width, int32_t height, void *param);
+int				calculate_color(t_fractal *fractal, int iter);
 int				color_scheme_grayscale(double t);
 int				color_scheme_red(double t);
 int				color_scheme_blue(double t);
 int				color_scheme_psychedelic(double t);
-
+void			render_julia(t_fractal *fractal);
 #endif
