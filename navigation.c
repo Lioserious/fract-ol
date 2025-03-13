@@ -6,34 +6,11 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:43:14 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:36:13 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 16:50:20 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
-
-// ESC zum Beenden
-// Pfeiltasten zur Navigation
-void	handle_key(mlx_key_data_t keydata, void *param)
-{
-	t_fractal	*fractal;
-
-	fractal = param;
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(fractal->mlx);
-	if (keydata.key == MLX_KEY_UP && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_view(fractal, 0, -1);
-	if (keydata.key == MLX_KEY_DOWN && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_view(fractal, 0, 1);
-	if (keydata.key == MLX_KEY_LEFT && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_view(fractal, -1, 0);
-	if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT))
-		move_view(fractal, 1, 0);
-}
 
 // Mausposition holen
 // Links-Klick zum Zoomen
@@ -93,4 +70,5 @@ void	setup_hooks(t_fractal *fractal)
 	mlx_mouse_hook(fractal->mlx, handle_mouse, fractal);
 	mlx_scroll_hook(fractal->mlx, handle_scroll, fractal);
 	mlx_close_hook(fractal->mlx, handle_close, fractal);
+	mlx_resize_hook(fractal->mlx, handle_resize, fractal);
 }
