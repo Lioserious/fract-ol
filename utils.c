@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 15:45:18 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/13 15:53:28 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	init_mlx(t_fractal *fractal)
 // Y-Koordinate: Bereich von [0, height-1] wird auf [min_im, max_im] abgebildet
 // Beachte, dass die Y-Achse auf dem Bildschirm nach unten geht,
 // aber in der komplexen Ebene nach oben
-complex	map_pixel_to_complex(t_fractal *fractal, int x, int y)
+t_complex	map_pixel_to_complex(t_fractal *fractal, int x, int y)
 {
-	complex	c;
+	t_complex	c;
 
 	c.real = fractal->min_re + (double)x / (fractal->width - 1)
 		* (fractal->max_re - fractal->min_re);
@@ -93,7 +93,7 @@ void	render_mandelbrot(t_fractal *fractal)
 {
 	int		x;
 	int		y;
-	complex	c;
+	t_complex	c;
 	int		iter;
 
 	y = 0;
