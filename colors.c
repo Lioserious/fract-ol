@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:35:48 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 18:31:51 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 18:42:17 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ void	handle_color_change(t_fractal *fractal, mlx_key_data_t keydata)
 		else if (fractal->fractal_type == 2)
 			render_julia(fractal);
 		else if (fractal->fractal_type == 3)
-			render_mandelbrot(fractal);
+			render_burning_ship(fractal);
 	}
 }
