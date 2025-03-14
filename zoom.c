@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 13:51:25 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 16:30:36 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 17:10:53 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ void	zoom_in(t_fractal *fractal, int x, int y)
 	fractal->max_im = c.imag + height / 2;
 	if (fractal->fractal_type == 1)
 		render_mandelbrot(fractal);
-	if (fractal->fractal_type == 2)
+	else if (fractal->fractal_type == 2)
 		render_julia(fractal);
+	else if (fractal->fractal_type == 3)
+		render_burning_ship(fractal);
 }
 
 // Punkt unter dem Mauszeiger finden
@@ -62,6 +64,8 @@ void	zoom_out(t_fractal *fractal, int x, int y)
 		render_mandelbrot(fractal);
 	else if (fractal->fractal_type == 2)
 		render_julia(fractal);
+	else if (fractal->fractal_type == 3)
+		render_burning_ship(fractal);
 }
 
 // Bewegungsgeschwindigkeit (0.05 = 5% des sichtbaren Bereichs pro Tastendruck)
@@ -89,6 +93,8 @@ void	move_view(t_fractal *fractal, int dx, int dy)
 		render_mandelbrot(fractal);
 	else if (fractal->fractal_type == 2)
 		render_julia(fractal);
+	else if(fractal->fractal_type == 3)
+		render_burning_ship(fractal);
 }
 
 void	handle_resize(int32_t width, int32_t height, void *param)
@@ -111,4 +117,6 @@ void	handle_resize(int32_t width, int32_t height, void *param)
 		render_mandelbrot(fractal);
 	else if (fractal->fractal_type == 2)
 		render_julia(fractal);
+	else if (fractal->fractal_type == 3)
+		render_burning_ship(fractal);
 }
