@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:39:17 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 18:44:53 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 17:00:59 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,45 @@ void	render_julia(t_fractal *fractal)
 		y++;
 	}
 }
+int	calculate_burning_ship(t_complex c, int max_iter)
+{
+	int			i;
+	double		temp;
+	t_complex	z;
 
+	z.real = 0.0;
+	z.imag = 0.0;
+	i = 0;
+	while (i < max_iter && (z.real * z.real + z.imag * z.imag) < 4.0)
+	{
+		z.real = fabs(z.real);
+		z.imag = fabs(z.imag);
+		temp = z.real * z.real - z.imag * z.imag + c.real;
+		z.imag = 2.0 * z.real * z.imag + c.imag;
+		z.real = temp;
+		i++;
+	}
+	return (i);
+}
+
+void	render_burning_ship(t_fractal *fractal)
+{
+	int			x;
+	int			y;
+	t_complex	c;
+	int			iter;
+
+	y = 0;
+	while (y < fractal->height)
+	{
+		x = 0;
+		while (x < fractal->width)
+		{
+			c = map_pixel_to_complex(fractal, x, y);
+			iter = calculate_burning_ship(c, fractal->max_iter);
+			mlx_put_pixel(fractal->img, x, y, calculate_color(fractal, iter));
+			x++;
+		}
+		y++;
+	}
+}
