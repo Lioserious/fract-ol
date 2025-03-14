@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:39:17 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 17:00:59 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 17:34:25 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	render_julia(t_fractal *fractal)
 		y++;
 	}
 }
+
 int	calculate_burning_ship(t_complex c, int max_iter)
 {
 	int			i;
@@ -106,6 +107,7 @@ void	render_burning_ship(t_fractal *fractal)
 		while (x < fractal->width)
 		{
 			c = map_pixel_to_complex(fractal, x, y);
+			c.imag = -c.imag;
 			iter = calculate_burning_ship(c, fractal->max_iter);
 			mlx_put_pixel(fractal->img, x, y, calculate_color(fractal, iter));
 			x++;
