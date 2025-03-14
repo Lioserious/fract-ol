@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:48:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 16:32:35 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 17:18:03 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	handle_color_change(t_fractal *fractal, mlx_key_data_t keydata)
 	if (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS)
 	{
 		fractal->color_scheme = (fractal->color_scheme + 1) % 4;
-		if(fractal->fractal_type == 1)
+		if (fractal->fractal_type == 1)
 			render_mandelbrot(fractal);
-		else if(fractal->fractal_type == 2)
+		else if (fractal->fractal_type == 2)
 			render_julia(fractal);
 	}
 }
@@ -45,25 +45,14 @@ void	handle_color_change(t_fractal *fractal, mlx_key_data_t keydata)
 // Hilfsfunktion für den Reset
 void	handle_reset(t_fractal *fractal, mlx_key_data_t keydata)
 {
-	if (fractal->fractal_type == 1 && keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
 	{
-		fractal->min_re = -2.0;
-		fractal->max_re = 1.0;
-		fractal->min_im = -1.5;
-		fractal->max_im = 1.5;
-		fractal->max_iter = 100;
-		render_mandelbrot(fractal);
-	}
-	if(fractal->fractal_type == 2 && keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
-	{
-		fractal->julia_im = fractal->julia_im_cpy;
-		fractal->julia_re = fractal->julia_re_cpy;
-		fractal->min_re = -2.0;
-		fractal->max_re = 1.0;
-		fractal->min_im = -1.5;
-		fractal->max_im = 1.5;
-		fractal->max_iter = 100;
-		render_julia(fractal);
+		if (fractal->fractal_type == 1)
+			reset_mandelbrot(fractal);
+		else if (fractal->fractal_type == 2)
+			reset_julia(fractal);
+		else if (fractal->fractal_type == 3)
+			reset_burning_ship(fractal);
 	}
 }
 

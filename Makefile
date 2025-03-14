@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 15:26:53 by lihrig            #+#    #+#              #
-#    Updated: 2025/03/13 16:52:10 by lihrig           ###   ########.fr        #
+#    Updated: 2025/03/14 17:18:43 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ zoom.c \
 navigation.c \
 colors.c \
 handle_key.c \
+handle_reset.c \
 
 
 SRC := $(SRC_FILES)
