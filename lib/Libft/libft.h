@@ -6,16 +6,16 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:27:10 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 15:02:22 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 15:51:36 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "ft_printf/ft_printf.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf/ft_printf.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -52,5 +52,6 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_printf(const char *format, ...);
+double	ft_atof(const char *str);
 
 #endif
