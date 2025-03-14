@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 18:39:09 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 18:23:11 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_fractal	*init_fractal(void)
 	fractal->max_iter = 100;
 	fractal->fractal_type = 1;
 	fractal->julia_re = -0.7;
-	fractal->julia_im = 0.27; 
+	fractal->julia_im = 0.27;
 	fractal->color_scheme = 0;
 	fractal->mlx = NULL;
 	fractal->img = NULL;
@@ -76,23 +76,22 @@ t_complex	map_pixel_to_complex(t_fractal *fractal, int x, int y)
 int	calculate_color(t_fractal *fractal, int iter)
 {
 	double	t;
+	int		scheme;
 
 	if (iter == fractal->max_iter)
 		return (0x000000FF);
 	t = (double)iter / fractal->max_iter;
-	switch (fractal->color_scheme)
-	{
-	case 0:
+	scheme = fractal->color_scheme;
+	if (scheme < 0 || scheme > 3)
+		scheme = 0;
+	if (scheme == 0)
 		return (color_scheme_grayscale(t));
-	case 1:
+	else if (scheme == 1)
 		return (color_scheme_red(t));
-	case 2:
+	else if (scheme == 2)
 		return (color_scheme_blue(t));
-	case 3:
+	else
 		return (color_scheme_psychedelic(t));
-	default:
-		return (color_scheme_grayscale(t));
-	}
 }
 
 void	render_mandelbrot(t_fractal *fractal)
