@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 15:10:36 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 16:22:40 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int parse_args(int argc, char **argv, t_fractal *fractal)
 {
-	(void)argc;
+	if (argc < 2)
+		return (0);
     if (ft_strncmp(argv[1], "mandelbrot", 10) == 0)
     {
         fractal->fractal_type = 1;
@@ -23,6 +24,12 @@ int parse_args(int argc, char **argv, t_fractal *fractal)
     else if (ft_strncmp(argv[1], "julia", 5) == 0)
     {
         fractal->fractal_type = 2;
+		if(argc >= 3)
+			fractal->julia_re = ft_atof(argv[2]);
+			fractal->julia_re_cpy = fractal->julia_re;
+		if(argc >= 4)
+			fractal->julia_im = ft_atof(argv[2]);
+			fractal->julia_im_cpy = fractal->julia_im;
         return (1);
     }
     return (0);

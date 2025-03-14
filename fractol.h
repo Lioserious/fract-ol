@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:01:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 19:01:44 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 16:22:05 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ typedef struct s_fractal
 	int			max_iter;
 	int			fractal_type;
 	double		julia_re;
+	double		julia_re_cpy;
 	double		julia_im;
+	double		julia_im_cpy;
 	int			color_scheme;
 }				t_fractal;
 
@@ -70,4 +72,5 @@ int				color_scheme_red(double t);
 int				color_scheme_blue(double t);
 int				color_scheme_psychedelic(double t);
 void			render_julia(t_fractal *fractal);
+
 #endif
