@@ -6,45 +6,59 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:15:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 15:40:39 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 15:46:46 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double ft_atof(const char *str)
+static double	parse_integers(const char *str, size_t *i)
 {
-	double result;
-	double factor;
-	int vrz;
-	size_t i;
-	
-	i = 0;
-	vrz = 1;
-	
-	if(str[i] == '-')
+	double	result;
+
+	result = 0.0;
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		result = result * 10.0 + (str[*i] - '0');
+		(*i)++;
+	}
+	return (result);
+}
+
+static double	parse_decimals(const char *str, size_t *i)
+{
+	double	decimal;
+	double	factor;
+
+	decimal = 0.0;
+	factor = 0.1;
+	if (str[*i] == '.')
+	{
+		(*i)++;
+		while (str[*i] >= '0' && str[*i] <= '9')
+		{
+			decimal += (str[*i] - '0') * factor;
+			factor *= 0.1;
+			(*i)++;
+		}
+	}
+	return (decimal);
+}
+
+double	ft_atof(const char *str)
+{
+	double result = 0.0;
+	int vrz = 1;
+	size_t i = 0;
+
+	if (str[i] == '-')
 	{
 		vrz = -1;
 		i++;
 	}
 	else if (str[i] == '+')
 		i++;
-	while(str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10.0 + (str[i] - '0');
-		i++;
-	}
-	if(str[i] == '.')
-	{
-		i++;
-		factor = 0.1;
-		
-		while (str[i] >= 0 && str[i] <= 9)
-		{
-			result += (str[i] - '0') * factor;
-			factor *= 0.1;
-			i++;
-		}
-	}
-	return (result * vrz);	
+	result = parse_integers(str, &i);
+	result += parse_decimals(str, &i);
+	return (result * vrz);
 }
