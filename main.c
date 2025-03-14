@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/13 19:00:15 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 15:10:36 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ int parse_args(int argc, char **argv, t_fractal *fractal)
     return (0);
 }
 
+void print_usage(void)
+{
+	ft_printf("Usage: ./fractol [type] [parameters]\n");
+    ft_printf("Types:\n");
+    ft_printf("  mandelbrot    : Renders the Mandelbrot set\n");
+    ft_printf("  julia [re] [im]: Renders the Julia set with given parameters\n");
+    ft_printf("                   Default: -0.7 0.27\n");
+    ft_printf("Examples:\n");
+    ft_printf("  ./fractol mandelbrot\n");
+    ft_printf("  ./fractol julia -0.7 0.27\n");
+    ft_printf("  ./fractol julia -0.8 0.156\n");
+    ft_printf("  ./fractol julia -0.4 0.6\n");
+    ft_printf("  ./fractol julia 0.285 0.01\n");
+}
+
 
 int main(int argc, char **argv)
 {
@@ -38,7 +53,7 @@ int main(int argc, char **argv)
         return (1);
     if (argc == 1 || !parse_args(argc, argv, fractal))
     {
-        // print_usage();
+        print_usage();
         free(fractal);
         return (1);
     }
