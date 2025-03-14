@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:01:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 16:22:05 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 18:33:51 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,10 @@ int				color_scheme_red(double t);
 int				color_scheme_blue(double t);
 int				color_scheme_psychedelic(double t);
 void			render_julia(t_fractal *fractal);
+void			render_burning_ship(t_fractal *fractal);
+void			reset_mandelbrot(t_fractal *fractal);
+void			reset_julia(t_fractal *fractal);
+void			reset_burning_ship(t_fractal *fractal);
+void			handle_color_change(t_fractal *fractal, mlx_key_data_t keydata);
 
 #endif
