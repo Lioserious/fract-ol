@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:54:11 by lihrig            #+#    #+#             */
-/*   Updated: 2024/11/05 18:42:01 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 15:02:02 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int	ft_printf(const char *format, ...);
 int	my_putchar(const char c);
 int	*get_count(void);
 int	my_putstr(const char *str);
+int	ft_printf(const char *format, ...);
 
 #endif

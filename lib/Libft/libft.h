@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:27:10 by lihrig            #+#    #+#             */
-/*   Updated: 2025/02/20 16:35:20 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 15:02:22 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf/ft_printf.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
