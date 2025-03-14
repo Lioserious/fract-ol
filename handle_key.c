@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:48:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 17:18:03 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/14 18:30:50 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,6 @@ void	handle_navigation(t_fractal *fractal, mlx_key_data_t keydata)
 	if (keydata.key == MLX_KEY_RIGHT && (keydata.action == MLX_PRESS
 			|| keydata.action == MLX_REPEAT))
 		move_view(fractal, 1, 0);
-}
-
-// Hilfsfunktion für die Farbschemawechsel
-void	handle_color_change(t_fractal *fractal, mlx_key_data_t keydata)
-{
-	if (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS)
-	{
-		fractal->color_scheme = (fractal->color_scheme + 1) % 4;
-		if (fractal->fractal_type == 1)
-			render_mandelbrot(fractal);
-		else if (fractal->fractal_type == 2)
-			render_julia(fractal);
-	}
 }
 
 // Hilfsfunktion für den Reset
