@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:15:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 15:46:46 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 11:42:51 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ static double	parse_decimals(const char *str, size_t *i)
 
 double	ft_atof(const char *str)
 {
-	double result = 0.0;
-	int vrz = 1;
-	size_t i = 0;
+	double	result;
+	int		vrz;
+	size_t	i;
 
+	result = 0.0;
+	vrz = 1;
+	i = 0;
 	if (str[i] == '-')
 	{
 		vrz = -1;
