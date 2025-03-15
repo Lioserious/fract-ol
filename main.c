@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 17:33:09 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 11:46:34 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,6 @@
 void	free_fractal(t_fractal *fractal)
 {
 	free(fractal);
-}
-
-int	parse_args(int argc, char **argv, t_fractal *fractal)
-{
-	if (argc < 2)
-		return (0);
-	if (ft_strncmp(argv[1], "mandelbrot", 10) == 0)
-	{
-		fractal->fractal_type = 1;
-		return (1);
-	}
-	else if (ft_strncmp(argv[1], "julia", 5) == 0)
-	{
-		fractal->fractal_type = 2;
-		if (argc >= 3)
-			fractal->julia_re = ft_atof(argv[2]);
-		fractal->julia_re_cpy = fractal->julia_re;
-		if (argc >= 4)
-			fractal->julia_im = ft_atof(argv[2]);
-		fractal->julia_im_cpy = fractal->julia_im;
-		return (1);
-	}
-	else if (ft_strncmp(argv[1], "ship", 5) == 0)
-	{
-		fractal->fractal_type = 3;
-		return (1);
-	}
-	return (0);
 }
 
 void	print_usage(void)

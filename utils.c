@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/15 12:46:11 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:24:47 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ int	calculate_color(t_fractal *fractal, int iter)
 	if (scheme == 0)
 		return (color_scheme_grayscale(t));
 	else if (scheme == 1)
-		return (color_scheme_red(t));
+		return (color_scheme_red(t, fractal));
 	else if (scheme == 2)
-		return (color_scheme_blue(t));
+		return (color_scheme_blue(t, fractal));
 	else
-		return (color_scheme_psychedelic(t));
+		return (color_scheme_psychedelic(t, fractal));
 }
 
 void	render_mandelbrot(t_fractal *fractal)
