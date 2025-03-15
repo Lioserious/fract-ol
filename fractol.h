@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:01:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/15 12:44:30 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:35:34 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_fractal
 	double		julia_im;
 	double		julia_im_cpy;
 	int			color_scheme;
-	int			color_param_r; 
+	int			color_param_r;
 	int			color_param_g;
 	int			color_param_b;
 }				t_fractal;
@@ -71,9 +71,9 @@ void			setup_hooks(t_fractal *fractal);
 void			handle_resize(int32_t width, int32_t height, void *param);
 int				calculate_color(t_fractal *fractal, int iter);
 int				color_scheme_grayscale(double t);
-int				color_scheme_red(double t);
-int				color_scheme_blue(double t);
-int				color_scheme_psychedelic(double t);
+int				color_scheme_red(double t, t_fractal *fractal);
+int				color_scheme_blue(double t, t_fractal *fractal);
+int				color_scheme_psychedelic(double t, t_fractal *fractal);
 void			render_julia(t_fractal *fractal);
 void			render_burning_ship(t_fractal *fractal);
 void			reset_mandelbrot(t_fractal *fractal);
@@ -81,5 +81,11 @@ void			reset_julia(t_fractal *fractal);
 void			reset_burning_ship(t_fractal *fractal);
 void			handle_color_change(t_fractal *fractal, mlx_key_data_t keydata);
 int				parse_args(int argc, char **argv, t_fractal *fractal);
+void			handle_red_parameter(t_fractal *fractal,
+					mlx_key_data_t keydata);
+void			handle_green_parameter(t_fractal *fractal,
+					mlx_key_data_t keydata);
+void			handle_blue_parameter(t_fractal *fractal,
+					mlx_key_data_t keydata);
 
 #endif
