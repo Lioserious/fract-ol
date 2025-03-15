@@ -35,7 +35,7 @@ vpath %.h $(INC_DIRS)
 # Alle .c-Dateien im Hauptverzeichnis
 SRC_FILES = main.c \
 utils.c \
-mandelbrot.c \
+math_fractol.c\
 zoom.c \
 navigation.c \
 colors.c \
