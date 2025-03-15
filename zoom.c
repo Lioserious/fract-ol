@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 13:51:25 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 17:10:53 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 09:41:23 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	move_view(t_fractal *fractal, int dx, int dy)
 		render_mandelbrot(fractal);
 	else if (fractal->fractal_type == 2)
 		render_julia(fractal);
-	else if(fractal->fractal_type == 3)
+	else if (fractal->fractal_type == 3)
 		render_burning_ship(fractal);
 }
 
