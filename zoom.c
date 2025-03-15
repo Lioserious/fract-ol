@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 13:51:25 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/15 09:41:23 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:44:52 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	zoom_in(t_fractal *fractal, int x, int y)
 	zoom_factor = 0.5;
 	width = (fractal->max_re - fractal->min_re) * zoom_factor;
 	height = (fractal->max_im - fractal->min_im) * zoom_factor;
+	fractal->max_iter = fractal->max_iter + 10;
 	fractal->min_re = c.real - width / 2;
 	fractal->max_re = c.real + width / 2;
 	fractal->min_im = c.imag - height / 2;
@@ -56,6 +57,7 @@ void	zoom_out(t_fractal *fractal, int x, int y)
 	zoom_factor = 2.0;
 	width = (fractal->max_re - fractal->min_re) * zoom_factor;
 	height = (fractal->max_im - fractal->min_im) * zoom_factor;
+	fractal->max_iter = fractal->max_iter - 5;
 	fractal->min_re = c.real - width / 2;
 	fractal->max_re = c.real + width / 2;
 	fractal->min_im = c.imag - height / 2;
