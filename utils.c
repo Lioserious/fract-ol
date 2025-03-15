@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:21:58 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 18:23:11 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 12:46:11 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ t_fractal	*init_fractal(void)
 	fractal->julia_re = -0.7;
 	fractal->julia_im = 0.27;
 	fractal->color_scheme = 0;
+	fractal->color_param_b = 100;
+	fractal->color_param_g = 100;
+	fractal->color_param_r = 100;
 	fractal->mlx = NULL;
 	fractal->img = NULL;
 	return (fractal);
