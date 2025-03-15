@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:48:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/15 12:40:35 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:37:21 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,13 @@ void	handle_reset(t_fractal *fractal, mlx_key_data_t keydata)
 			reset_burning_ship(fractal);
 	}
 }
+
+// In handle_key.c
 void	handle_colour_parameters(t_fractal *fractal, mlx_key_data_t keydata)
 {
-	if (keydata.key == MLX_KEY_I && keydata.action == MLX_PRESS)
-	{
-
-	}
-	if (keydata.key == MLX_KEY_O && keydata.action == MLX_PRESS)
-	{
-
-	}
-	if (keydata.key == MLX_KEY_P && keydata.action == MLX_PRESS)
-	{
-
-	}
+	handle_red_parameter(fractal, keydata);
+	handle_green_parameter(fractal, keydata);
+	handle_blue_parameter(fractal, keydata);
 }
 
 // Hauptfunktion für Tastatureingaben
@@ -69,4 +62,5 @@ void	handle_key(mlx_key_data_t keydata, void *param)
 	handle_navigation(fractal, keydata);
 	handle_color_change(fractal, keydata);
 	handle_reset(fractal, keydata);
+	handle_colour_parameters(fractal, keydata);
 }
