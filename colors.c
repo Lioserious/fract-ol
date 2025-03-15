@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:35:48 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 18:42:17 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:33:43 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,41 @@ int	color_scheme_grayscale(double t)
 }
 
 // Funktion für rotes Farbschema
-int	color_scheme_red(double t)
+int	color_scheme_red(double t, t_fractal *fractal)
 {
 	int	r;
 	int	g;
 	int	b;
 
-	r = (int)(t * 255);
-	g = (int)(t * 100);
-	b = (int)(t * 20);
+	r = (int)(t * fractal->color_param_r);
+	g = (int)(t * (fractal->color_param_g / 2.55));
+	b = (int)(t * (fractal->color_param_b / 12.75));
 	return (((r << 16) | (g << 8) | b) << 8 | 0xFF);
 }
 
 // Funktion für blaues Farbschema
-int	color_scheme_blue(double t)
+int	color_scheme_blue(double t, t_fractal *fractal)
 {
 	int	r;
 	int	g;
 	int	b;
 
-	r = (int)(t * 20);
-	g = (int)(t * 100);
-	b = (int)(t * 255);
+	r = (int)(t * (fractal->color_param_r / 12.75));
+	g = (int)(t * (fractal->color_param_g / 2.55));
+	b = (int)(t * fractal->color_param_b);
 	return (((r << 16) | (g << 8) | b) << 8 | 0xFF);
 }
 
 // Funktion für psychedelisches Farbschema
-int	color_scheme_psychedelic(double t)
+int	color_scheme_psychedelic(double t, t_fractal *fractal)
 {
 	int	r;
 	int	g;
 	int	b;
 
-	r = (int)(sin(t * 15) * 127.5 + 127.5);
-	g = (int)(sin(t * 15 + 2) * 127.5 + 127.5);
-	b = (int)(sin(t * 15 + 4) * 127.5 + 127.5);
+	r = (int)(sin(t * (fractal->color_param_r / 17)) * 127.5 + 127.5);
+	g = (int)(sin((t * (fractal->color_param_g / 17) + 2)) * 127.5 + 127.5);
+	b = (int)(sin((t * (fractal->color_param_b / 17) + 4)) * 127.5 + 127.5);
 	return (((r << 16) | (g << 8) | b) << 8 | 0xFF);
 }
 
