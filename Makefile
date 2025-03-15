@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/19 15:26:53 by lihrig            #+#    #+#              #
-#    Updated: 2025/03/15 11:45:47 by lihrig           ###   ########.fr        #
+#    Updated: 2025/03/15 13:23:26 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ colors.c \
 handle_key.c \
 handle_reset.c \
 parse_args.c \
+colors_change.c \
 
 
 SRC := $(SRC_FILES)
