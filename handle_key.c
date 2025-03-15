@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:48:45 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/14 18:30:50 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 12:40:35 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,21 @@ void	handle_reset(t_fractal *fractal, mlx_key_data_t keydata)
 			reset_julia(fractal);
 		else if (fractal->fractal_type == 3)
 			reset_burning_ship(fractal);
+	}
+}
+void	handle_colour_parameters(t_fractal *fractal, mlx_key_data_t keydata)
+{
+	if (keydata.key == MLX_KEY_I && keydata.action == MLX_PRESS)
+	{
+
+	}
+	if (keydata.key == MLX_KEY_O && keydata.action == MLX_PRESS)
+	{
+
+	}
+	if (keydata.key == MLX_KEY_P && keydata.action == MLX_PRESS)
+	{
+
 	}
 }
 
