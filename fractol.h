@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:01:59 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/15 12:15:41 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/15 12:44:30 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ typedef struct s_fractal
 	double		julia_im;
 	double		julia_im_cpy;
 	int			color_scheme;
+	int			color_param_r; 
+	int			color_param_g;
+	int			color_param_b;
 }				t_fractal;
 
 // fuer den Mathematischen teil
