@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 11:45:21 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/15 12:32:03 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/20 14:22:36 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,23 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	if (argc < 2)
 		return (0);
 	if (ft_strncmp_mod(argv[1], "mandelbrot", 10) == 0)
-	{	
-		if(ft_strlen(argv[1]) > 10)
-		return (0);
+	{
+		if (ft_strlen(argv[1]) > 10)
+			return (0);
 		fractal->fractal_type = 1;
 		return (1);
 	}
 	else if (ft_strncmp_mod(argv[1], "julia", 5) == 0)
 	{
-		if(ft_strlen(argv[1]) > 5)
+		if (ft_strlen(argv[1]) > 5)
 			return (0);
 		fractal->fractal_type = 2;
 		return (parse_julia_params(argc, argv, fractal));
 	}
 	else if (ft_strncmp_mod(argv[1], "ship", 5) == 0)
 	{
-		if(ft_strlen(argv[1]) > 5)
-		return (0);
+		if (ft_strlen(argv[1]) > 5)
+			return (0);
 		fractal->fractal_type = 3;
 		return (1);
 	}
