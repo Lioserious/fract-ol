@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:28:02 by lihrig            #+#    #+#             */
-/*   Updated: 2025/03/20 14:26:01 by lihrig           ###   ########.fr       */
+/*   Updated: 2025/03/20 14:26:48 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_usage(void)
 	ft_printf("Usage: ./fractol [type] [parameters]\n");
 	ft_printf("Types:\n");
 	ft_printf("  mandelbrot    : Renders the Mandelbrot set\n");
-	ft_printf("  julia [re] [im]: Renders the Julia");
+	ft_printf("  julia [re] [im]: Renders the Julia\n");
 	ft_printf("   ship : Renders the Burning Ship fractal\n");
 	ft_printf("set with given parameters\n");
 	ft_printf("                   Default: -0.7 0.27\n");
